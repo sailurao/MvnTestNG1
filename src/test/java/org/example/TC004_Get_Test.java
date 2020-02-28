@@ -39,6 +39,9 @@ public class TC004_Get_Test {
         reqparams.put("salary","50000");
         reqparams.put("id","10");
 
+        //deleeting the record before adding incase if it exists to not to run into the error: record already exists
+        Response httpresp1 = httpreq.request(Method.DELETE,"/employees/10");
+        
         httpreq.header("Content-Type","application/json");
         httpreq.body(reqparams.toJSONString());
 
